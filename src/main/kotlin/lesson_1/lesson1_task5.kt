@@ -1,18 +1,13 @@
 package lesson_1
 
-fun main(){
+const val SECONDS_IN_HOUR: Int = 3600
+const val SECONDS_IN_MINUTE: Int = 60
+
+fun main() {
     val totalSeconds: Int = 6480
-    val hours: Int = totalSeconds / 3600
-    val remains: Int = totalSeconds % 3600
-    val minutes: Int = remains / 60
-    val seconds: Int = remains % 60
-
-    println("${formatNums(hours)}:${formatNums(minutes)}:${formatNums(seconds)}")
-}
-
-fun formatNums(num: Int) : String{
-    if (num < 10)
-        return "0$num"
-    else
-        return num.toString()
+    val hours: Int = totalSeconds / SECONDS_IN_HOUR
+    val remains: Int = totalSeconds % SECONDS_IN_HOUR
+    val minutes: Int = remains / SECONDS_IN_MINUTE
+    val seconds: Int = remains % SECONDS_IN_MINUTE
+    println(String.format("%02d:%02d:%02d", hours, minutes, seconds))
 }
